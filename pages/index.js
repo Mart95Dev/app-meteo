@@ -62,9 +62,13 @@ export async function getStaticProps() {
   const response = await fetch(url);
   const location = await response.json();
 
+  const data = await import("../data/countries.json");
+  const countrie = data.countries;
+
   return {
     props: {
       location,
+      countrie,
     },
   };
 }
