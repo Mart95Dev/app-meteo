@@ -2,7 +2,22 @@ import Head from "next/head";
 import Data from "../data/pictures";
 
 export default function Home(props) {
-  console.log(props);
+  console.log(props.location);
+
+  // veification de la langue du pays français ou anglais
+  const languageSearch = () => {
+    for (let i = 0; i < props.countrie.length; i++) {
+      if (props.countrie[i].en === props.location.country_name) {
+        return props.countrie[i].fr;
+      }
+      if (props.countrie[i].en !== props.location.country_name) {
+        props.location.country_name;
+      }
+    }
+  };
+  const countryFrench = languageSearch();
+  // affichage de l'attribu image en fonction du drapeau de localisation
+  const flagAlt = `Drapeau de ${props.location.country_name}`;
 
   return (
     <div>
@@ -33,11 +48,21 @@ export default function Home(props) {
                   <img
                     className="border-2 border-gray-500 rounded"
                     src={props.location.country_flag}
-                    alt="drapeau"
+                    alt={flagAlt}
                   />
                 </li>
-                <li> Pays : {props.location.country_name}</li>
-                <li>Ville : {props.location.city}</li>
+                <li>
+                  <span className="mr-1"> Pays :</span>
+                  <span className="font-semibold">{countryFrench}</span>
+                </li>
+                <li>
+                  <span className="mr-1">Capitale du pays :</span>
+                  <span className="font-semibold">
+                    {props.location.city === ""
+                      ? props.location.country_capital
+                      : props.location.city}
+                  </span>
+                </li>
               </ul>
             </div>
           </div>
