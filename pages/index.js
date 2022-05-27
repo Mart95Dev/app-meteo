@@ -1,8 +1,14 @@
+import React from "react";
+import { useEffect } from "react";
 import Head from "next/head";
 import Data from "../data/pictures";
 
 export default function Home(props) {
-  console.log(props.location);
+  // useEffect pour utiliser le paramètre window qui s'éxécute une seule fois au load de la page
+  useEffect(() => {
+    const browser = window.navigator.language;
+    console.log(browser);
+  }, []);
 
   //verification si le sigle fr est présent dans languages de location
   const languagesLocation = props.location.languages.includes("fr");
@@ -18,7 +24,6 @@ export default function Home(props) {
 
   //On assigne la fonction du pays français à une variable pour faciliter l'utilisation
   const countryLanguageFrench = countryFrench();
-  console.log(countryLanguageFrench);
 
   //verification on verifie que pays de city est identique au pays de la variable countryFrench pour retourner la capitale en français
   const cityFrench = () => {
@@ -30,7 +35,6 @@ export default function Home(props) {
   };
   //On assigne la fonction du ville français à une variable pour faciliter l'utilisation
   const cityLanguageFrench = cityFrench();
-  console.log(cityLanguageFrench);
 
   // affichage de l'attribut image en fonction du drapeau de localisation
   const flagAlt = `Drapeau de ${props.location.country_name}`;
@@ -59,7 +63,7 @@ export default function Home(props) {
               M&Eacute;T&Eacute;O DE VOTRE G&Eacute;OLOCALISATION:
             </h2>
             <div className="px-1 py- 8 mr-1 ml-1 border-2 border-slate-100 rounded w-auto bg-gray-50/[0.9] drop-shadow-lg">
-              <ul className="flex space-x-12 space-y-1 mr-4 items-center">
+              <ul className="flex space-x-12 space-y-1 items-center">
                 <li>
                   <img
                     className="border-2 border-gray-500 rounded min-80 min-64"
@@ -68,7 +72,7 @@ export default function Home(props) {
                   />
                 </li>
                 <li>
-                  <span className="mr-1">Pays:</span>
+                  <span className="mr-2">Pays:</span>
                   <span className="font-semibold">
                     {languagesLocation
                       ? countryLanguageFrench
@@ -76,7 +80,7 @@ export default function Home(props) {
                   </span>
                 </li>
                 <li>
-                  <span className="mr-1">Capitale:</span>
+                  <span className="mr-2">Capitale:</span>
                   <span className="font-semibold">
                     {languagesLocation
                       ? cityLanguageFrench
@@ -100,9 +104,15 @@ export default function Home(props) {
   );
 }
 
+// key api openweather = `4b3031b22dbbe5a92df050da62b15307`
+// url api openweather = "https://api.openweathermap.org/data/2.5/weather?q=London&appid=4b3031b22dbbe5a92df050da62b15307&lang=en&units=metric"
+
+// key api weather api = `dca9bf60966d4dd9a2f120022222705`
+// url api weather api = "https://api.weatherapi.com/v1/search.json?key=dca9bf60966d4dd9a2f120022222705&q=paris"
+
 export async function getStaticProps() {
-  const key = "7bee4c110b8a43849ebeb6b837154eae";
-  const url = `https://api.ipgeolocation.io/ipgeo?apiKey=${key}`;
+  const keyIp = "7bee4c110b8a43849ebeb6b837154eae";
+  const url = `https://api.ipgeolocation.io/ipgeo?apiKey=${keyIp}`;
 
   const data1 = await fetch(url);
   const location = await data1.json();
