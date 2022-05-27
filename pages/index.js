@@ -1,13 +1,15 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import Data from "../data/pictures";
 
 export default function Home(props) {
+  const [browser, setBrowser] = useState("");
+
   // useEffect pour utiliser le paramètre window qui s'éxécute une seule fois au load de la page
   useEffect(() => {
     const browser = window.navigator.language;
-    console.log(browser);
+    setBrowser(browser);
   }, []);
 
   //verification si le sigle fr est présent dans languages de location
