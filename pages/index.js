@@ -4,6 +4,8 @@ import Head from "next/head";
 import Data from "../data/pictures";
 
 export default function Home(props) {
+  console.log(props.location);
+
   const [browser, setBrowser] = useState("");
 
   // useEffect pour utiliser le paramètre window qui s'éxécute une seule fois au load de la page
@@ -12,10 +14,7 @@ export default function Home(props) {
     setBrowser(browser);
   }, []);
 
-  //verification si le sigle fr est présent dans languages de location
-  const languagesLocation = props.location.languages.includes("fr");
-
-  //verification pays de location ets identique a pays de country en anglais et on retourne en français
+  //verification pays de location est identique a pays de country en anglais et on retourne le pays en français
   const countryFrench = () => {
     for (let i = 0; i < props.country.length; i++) {
       if (props.country[i].en === props.location.country_name) {
@@ -35,6 +34,7 @@ export default function Home(props) {
       }
     }
   };
+
   //On assigne la fonction du ville français à une variable pour faciliter l'utilisation
   const cityLanguageFrench = cityFrench();
 
@@ -76,7 +76,7 @@ export default function Home(props) {
                 <li>
                   <span className="mr-2">Pays:</span>
                   <span className="font-semibold">
-                    {languagesLocation
+                    {browser === "fr"
                       ? countryLanguageFrench
                       : props.location.country_name}
                   </span>
@@ -84,7 +84,7 @@ export default function Home(props) {
                 <li>
                   <span className="mr-2">Capitale:</span>
                   <span className="font-semibold">
-                    {languagesLocation
+                    {browser === "fr"
                       ? cityLanguageFrench
                       : props.location.city}
                   </span>
@@ -93,21 +93,19 @@ export default function Home(props) {
             </div>
           </div>
         </div>
-        <div className="hidden sm:block relative flex-1">
-          {Data.images[0]}
-          {/* <img
-            src="assets/bg-weather.jpg" // la photo se change de façon aléatoire en fonction du temps de la ville
-            alt="photo weather"
-            className="h-full w-full object-cover"
-          /> */}
-        </div>
+        <div className="hidden sm:block relative flex-1">{Data.images[0]}</div>
       </main>
     </div>
   );
 }
 
+// key api visualcrossing ="6EEVCW7BTCDAXQBWHNXLGF3ZR"
+// url api visualcrossing_furure date and current date = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/paris/2022-05-27/2022-05-30?key=6EEVCW7BTCDAXQBWHNXLGF3ZR&FR"
+// url api visualcrossing_next_days_hour = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/France?key=6EEVCW7BTCDAXQBWHNXLGF3ZR&lang=fr"
+
 // key api openweather = `4b3031b22dbbe5a92df050da62b15307`
-// url api openweather = "https://api.openweathermap.org/data/2.5/weather?q=London&appid=4b3031b22dbbe5a92df050da62b15307&lang=en&units=metric"
+// url api openweather_current = "https://api.openweathermap.org/data/2.5/weather?q=London&appid=4b3031b22dbbe5a92df050da62b15307&lang=en&units=metric"
+// url api openweather_current = "api.openweathermap.org/data/2.5/forecast/daily?cnt=5&q=London&appid=4b3031b22dbbe5a92df050da62b15307&lang=en&units=metric"
 
 // key api weather api = `dca9bf60966d4dd9a2f120022222705`
 // url api weather api = "https://api.weatherapi.com/v1/search.json?key=dca9bf60966d4dd9a2f120022222705&q=paris"
