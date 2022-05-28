@@ -2,11 +2,20 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import Data from "../data/pictures";
+import Location from "../components/Location";
 
 export default function Home(props) {
   console.log(props.location);
 
   const [browser, setBrowser] = useState("");
+  const [countryName, setCountryName] = useState(props.location.country_name);
+  const [capitalCityName, setCapitalCityName] = useState(
+    props.location.country_capital
+  );
+  const [flag, setFlag] = useState(props.location.country_flag);
+
+  console.log(countryName);
+  console.log(capitalCityName);
 
   // useEffect pour utiliser le paramètre window qui s'éxécute une seule fois au load de la page
   useEffect(() => {
@@ -38,9 +47,6 @@ export default function Home(props) {
   //On assigne la fonction du ville français à une variable pour faciliter l'utilisation
   const cityLanguageFrench = cityFrench();
 
-  // affichage de l'attribut image en fonction du drapeau de localisation
-  const flagAlt = `Drapeau de ${props.location.country_name}`;
-
   return (
     <div>
       <Head>
@@ -57,41 +63,14 @@ export default function Home(props) {
             " flex-1 flex flex-col bg-gradient-to-b from-sky-300 to-sky-100 "
           }
         >
-          <div className="mx-auto w-full h-full">
-            <h1 className="mt-2 text-2xl text-center font-bold text-slate-50 md:text-3xl">
-              M&Eacute;T&Eacute;O
-            </h1>
-            <h2 className="mx-2 mt-6 mb-2 text-left text-slate-100">
-              M&Eacute;T&Eacute;O DE VOTRE G&Eacute;OLOCALISATION:
-            </h2>
-            <div className="px-1 py- 8 mr-1 ml-1 border-2 border-slate-100 rounded w-auto bg-gray-50/[0.9] drop-shadow-lg">
-              <ul className="flex space-x-12 space-y-1 items-center">
-                <li>
-                  <img
-                    className="border-2 border-gray-500 rounded min-80 min-64"
-                    src={props.location.country_flag}
-                    alt={flagAlt}
-                  />
-                </li>
-                <li>
-                  <span className="mr-2">Pays:</span>
-                  <span className="font-semibold">
-                    {browser === "fr"
-                      ? countryLanguageFrench
-                      : props.location.country_name}
-                  </span>
-                </li>
-                <li>
-                  <span className="mr-2">Capitale:</span>
-                  <span className="font-semibold">
-                    {browser === "fr"
-                      ? cityLanguageFrench
-                      : props.location.city}
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
+          <Location
+            browser={browser}
+            cityLanguageFrench={cityLanguageFrench}
+            countryLanguageFrench={countryLanguageFrench}
+            countryName={countryName}
+            capitalCityName={capitalCityName}
+            flag={flag}
+          />
         </div>
         <div className="hidden sm:block relative flex-1">{Data.images[0]}</div>
       </main>
