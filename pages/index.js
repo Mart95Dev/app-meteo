@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import Data from "../data/pictures";
-import Location from "../components/Location";
+import LocationIp from "../components/LocationIp";
 
 export default function Home(props) {
   // creer des variables pour les props pour le module location
@@ -11,6 +11,8 @@ export default function Home(props) {
   const [capitalCityName, setCapitalCityName] = useState(
     props.location.country_capital
   );
+
+  // afficher le pays du drapeau dans attribut alt
   const [flag, setFlag] = useState(props.location.country_flag);
 
   // useEffect pour utiliser le paramètre window qui s'éxécute une seule fois au load de la page
@@ -59,14 +61,23 @@ export default function Home(props) {
             " flex-1 flex flex-col bg-gradient-to-b from-sky-300 to-sky-100 "
           }
         >
-          <Location
-            browser={browser}
-            cityLanguageFrench={cityLanguageFrench}
-            countryLanguageFrench={countryLanguageFrench}
-            countryName={countryName}
-            capitalCityName={capitalCityName}
-            flag={flag}
-          />
+          {" "}
+          <div className="mx-auto w-full h-full">
+            <h1 className="mt-1 text-2xl text-center font-bold text-slate-50 md:text-3xl">
+              M&Eacute;T&Eacute;O
+            </h1>
+            <h2 className="mx-2 mt-4 mb-2 text-left text-slate-100">
+              M&Eacute;T&Eacute;O DE VOTRE G&Eacute;OLOCALISATION:
+            </h2>
+            <LocationIp
+              browser={browser}
+              cityLanguageFrench={cityLanguageFrench}
+              countryLanguageFrench={countryLanguageFrench}
+              countryName={countryName}
+              capitalCityName={capitalCityName}
+              flag={flag}
+            />
+          </div>
         </div>
         <div className="hidden sm:block relative flex-1">{Data.images[0]}</div>
       </main>
@@ -74,16 +85,8 @@ export default function Home(props) {
   );
 }
 
-// key api visualcrossing ="6EEVCW7BTCDAXQBWHNXLGF3ZR"
-// url api visualcrossing_furure date and current date = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/paris/2022-05-27/2022-05-30?key=6EEVCW7BTCDAXQBWHNXLGF3ZR&FR"
-// url api visualcrossing_next_days_hour = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/France?key=6EEVCW7BTCDAXQBWHNXLGF3ZR&lang=fr"
-
-// key api openweather = `4b3031b22dbbe5a92df050da62b15307`
-// url api openweather_current = "https://api.openweathermap.org/data/2.5/weather?q=London&appid=4b3031b22dbbe5a92df050da62b15307&lang=en&units=metric"
-// url api openweather_current = "api.openweathermap.org/data/2.5/forecast/daily?cnt=5&q=London&appid=4b3031b22dbbe5a92df050da62b15307&lang=en&units=metric"
-
-// key api weather api = `dca9bf60966d4dd9a2f120022222705`
-// url api weather api = "https://api.weatherapi.com/v1/search.json?key=dca9bf60966d4dd9a2f120022222705&q=paris"
+// url api visualcrossing_furure date and current date = ""
+// url api visualcrossing_next_days_hour = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/France?iconSet=icons2&key=6EEVCW7BTCDAXQBWHNXLGF3ZR&lang=fr"
 
 export async function getStaticProps() {
   const keyIp = "7bee4c110b8a43849ebeb6b837154eae";
