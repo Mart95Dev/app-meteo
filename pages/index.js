@@ -5,17 +5,13 @@ import Data from "../data/pictures";
 import Location from "../components/Location";
 
 export default function Home(props) {
-  console.log(props.location);
-
+  // creer des variables pour les props pour le module location
   const [browser, setBrowser] = useState("");
   const [countryName, setCountryName] = useState(props.location.country_name);
   const [capitalCityName, setCapitalCityName] = useState(
     props.location.country_capital
   );
   const [flag, setFlag] = useState(props.location.country_flag);
-
-  console.log(countryName);
-  console.log(capitalCityName);
 
   // useEffect pour utiliser le paramètre window qui s'éxécute une seule fois au load de la page
   useEffect(() => {
