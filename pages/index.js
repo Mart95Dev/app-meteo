@@ -55,10 +55,10 @@ export default function Home(props) {
         />
         <link rel="icon" href="/flavicon/temperatures.png" />
       </Head>
-      <main className="min-h[845px] h-screen flex">
+      <main className="min-w[505px] min-h[845px] h-screen flex">
         <div
           className={
-            " flex-1 flex flex-col bg-gradient-to-b from-sky-300 to-sky-100 "
+            "flex-1 flex flex-col bg-gradient-to-b from-sky-300 to-sky-100 "
           }
         >
           {" "}
