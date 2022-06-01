@@ -1,0 +1,57 @@
+{
+  "translator":[
+    {      
+      "country_en":"Country",  
+      "country_fr":"Pays"
+    },
+    {
+      
+      "capital_en":"Capital city",  
+      "capital_fr":"Capitale"
+    },
+    {
+     
+      "geolocalisation_en":"WEATHER FROM YOUR GEOLOCATION:",  
+      "geolocalisation_fr":"MÉTÉO DE VOTRE GÉOLOCALISATION:"
+    },
+    {
+      
+      "weather_en":"WEATHER",  
+      "weather_fr":"MÉTÉO"
+    },
+    {
+      
+      "feelslike_en":" Feels like",  
+      "feelslike_fr":"Temp ressenti"
+    },
+    {
+    
+      "temp_en":"Temp",
+      "temp_fr":"Temp"
+    },
+    {
+    
+      "precip_mm_en":"Rain",
+      "precip_mm_fr":"Pluie"
+    },
+    {
+      
+      "vis_km_en":"Wind",  
+      "vis_km_fr":"Vent"
+    },
+    {    
+      "humidity_en":"Humidity", 
+      "humidity_fr": "Humidité"
+    },
+    {
+      
+      "wind_speed_en":"Wind",  
+      "vis_speed_fr":"Vent"
+    },
+    {    
+      "en":"UV Value",  
+      "fr":"Coef UV"
+    } 
+  
+  ]
+}

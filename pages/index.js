@@ -5,6 +5,8 @@ import Data from "../data/pictures";
 import LocationIp from "../components/LocationIp";
 
 export default function Home(props) {
+  // console.log(props.translator[0]);
+
   // creer des variables pour les props pour le module location
   const [browser, setBrowser] = useState("");
   const [countryName, setCountryName] = useState(props.location.country_name);
@@ -17,7 +19,7 @@ export default function Home(props) {
 
   // useEffect pour utiliser le paramètre window qui s'éxécute une seule fois au load de la page
   useEffect(() => {
-    const browser = window.navigator.language;
+    const browser = window.navigator.language.slice(0, 2);
     setBrowser(browser);
   }, []);
 
@@ -101,11 +103,15 @@ export async function getStaticProps() {
   const data3 = await import("../data/cities.json");
   const city = data3.cities;
 
+  // const data4 = await import("../data/translator.json");
+  // const translator = data4.translator;
+
   return {
     props: {
       location,
       country,
       city,
+      // translator,
     },
   };
 }
