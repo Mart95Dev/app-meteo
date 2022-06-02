@@ -36,21 +36,16 @@
     },
     {
       
-      "vis_km_en":"Wind",  
-      "vis_km_fr":"Vent"
+      "wind_speed_en":"Wind",  
+      "wind_speed_fr":"Vent"
     },
     {    
       "humidity_en":"Humidity", 
       "humidity_fr": "Humidité"
-    },
-    {
-      
-      "wind_speed_en":"Wind",  
-      "vis_speed_fr":"Vent"
-    },
+    },   
     {    
-      "en":"UV Value",  
-      "fr":"Coef UV"
+      "uv_en":"UV Value",  
+      "uv_fr":"Coef UV"
     } 
   
   ]

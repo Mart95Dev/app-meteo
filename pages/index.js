@@ -5,7 +5,7 @@ import Data from "../data/pictures";
 import LocationIp from "../components/LocationIp";
 
 export default function Home(props) {
-  // console.log(props.translator[0]);
+  // console.log(props.translator);
 
   // creer des variables pour les props pour le module location
   const [browser, setBrowser] = useState("");
@@ -63,13 +63,16 @@ export default function Home(props) {
             "flex-1 flex flex-col bg-gradient-to-b from-sky-300 to-sky-100 "
           }
         >
-          {" "}
           <div className="mx-auto w-full h-full">
             <h1 className="mt-1 text-2xl text-center font-bold text-slate-50 md:text-3xl">
-              M&Eacute;T&Eacute;O
+              {browser === "fr"
+                ? props.translator[3].weather_fr
+                : props.translator[3].weather_en}
             </h1>
-            <h2 className="mx-2 mt-4 mb-2 text-left text-slate-100">
-              M&Eacute;T&Eacute;O DE VOTRE G&Eacute;OLOCALISATION:
+            <h2 className="mx-2 mt-2 mb-1 text-left text-slate-100">
+              {browser === "fr"
+                ? props.translator[2].geolocalisation_fr
+                : props.translator[2].geolocalisation_en}
             </h2>
             <LocationIp
               browser={browser}
@@ -78,6 +81,7 @@ export default function Home(props) {
               countryName={countryName}
               capitalCityName={capitalCityName}
               flag={flag}
+              translator={props.translator}
             />
           </div>
         </div>
@@ -103,15 +107,15 @@ export async function getStaticProps() {
   const data3 = await import("../data/cities.json");
   const city = data3.cities;
 
-  // const data4 = await import("../data/translator.json");
-  // const translator = data4.translator;
+  const data4 = await import("../data/translator.json");
+  const translator = data4.translator;
 
   return {
     props: {
       location,
       country,
       city,
-      // translator,
+      translator,
     },
   };
 }
