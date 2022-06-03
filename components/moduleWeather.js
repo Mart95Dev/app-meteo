@@ -18,15 +18,15 @@ export default function Weather({ weather, translator, browser }) {
           </div>
           <div className="flex flex-col">
             <span className=" text-center leading-loose text-slate-500">
-              {browser === "fr" ? translator[5].temp_fr : translator[5].temp_en}
+              {browser === "fr" ? translator[9].temp_fr : translator[9].temp_en}
             </span>
             <span className="text-center leading-loose text-lg text-sky-400">
               {weather.temp_c + "°"}
             </span>
             <span className="text-center leading-loose text-slate-500">
               {browser === "fr"
-                ? translator[6].precip_mm_fr
-                : translator[6].precip_mm_en}
+                ? translator[10].precip_mm_fr
+                : translator[10].precip_mm_en}
             </span>
             <span className=" text-centerleading-loose text-lg text-sky-400">
               {weather.precip_mm + "mm"}
@@ -35,16 +35,16 @@ export default function Weather({ weather, translator, browser }) {
           <div className="flex flex-col">
             <span className=" text-center leading-loose text-slate-500">
               {browser === "fr"
-                ? translator[4].feelslike_fr
-                : translator[4].feelslike_en}
+                ? translator[8].feelslike_fr
+                : translator[8].feelslike_en}
             </span>
             <span className="text-center leading-loose text-lg text-sky-400">
               {weather.feelslike_c + "°"}
             </span>
             <span className="text-center leading-loose text-slate-500">
               {browser === "fr"
-                ? translator[7].wind_speed_fr
-                : translator[7].wind_speed_en}
+                ? translator[11].wind_speed_fr
+                : translator[11].wind_speed_en}
             </span>
             <span className="text-center leading-loose text-lg text-sky-400">
               {weather.wind_kph + " kph "}
@@ -54,14 +54,14 @@ export default function Weather({ weather, translator, browser }) {
           <div className="flex flex-col">
             <span className="text-center leading-loose text-slate-500">
               {browser === "fr"
-                ? translator[8].humidity_fr
-                : translator[8].humidity_en}
+                ? translator[12].humidity_fr
+                : translator[12].humidity_en}
             </span>
             <span className="text-center leading-loose text-lg text-sky-400">
               {weather.humidity + " %"}
             </span>
             <span className="text-center leading-loose text-slate-500">
-              {browser === "fr" ? translator[9].uv_fr : translator[9].uv_en}
+              {browser === "fr" ? translator[13].uv_fr : translator[13].uv_en}
             </span>
             <span className="text-center leading-loose text-lg text-sky-400">
               {weather.uv}

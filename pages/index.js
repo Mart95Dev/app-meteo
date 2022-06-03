@@ -2,10 +2,11 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import Data from "../data/pictures";
-import LocationIp from "../components/LocationIp";
+import WeatherIp from "../components/weatherIp";
+import SearchInputWeather from "../components/weatherSearch";
 
 export default function Home(props) {
-  // console.log(props.translator);
+  console.log(props.translator);
 
   // creer des variables pour les props pour le module location
   const [browser, setBrowser] = useState("");
@@ -50,13 +51,24 @@ export default function Home(props) {
   return (
     <div>
       <Head>
-        <title>Application météo avec next JS</title>
+        <title>
+          {" "}
+          {browser === "fr"
+            ? props.translator[6].titlenavigator_fr
+            : props.translator[6].title_navigator_en}
+          Application météo avec next JS
+        </title>
         <meta
           name="description"
-          content="Réaliser une application météo avec Next JS + base avec Firebase"
+          content={
+            browser === "fr"
+              ? props.translator[7].title_content_fr
+              : props.translator[7].title_content_en
+          }
         />
         <link rel="icon" href="/flavicon/temperatures.png" />
       </Head>
+
       <main className="min-w[505px] min-h[845px] h-screen flex">
         <div
           className={
@@ -64,17 +76,21 @@ export default function Home(props) {
           }
         >
           <div className="mx-auto w-full h-full">
+            {/*Titre de présentation du projet*/}
             <h1 className="mt-1 text-2xl text-center font-bold text-slate-50 md:text-3xl">
               {browser === "fr"
-                ? props.translator[3].weather_fr
-                : props.translator[3].weather_en}
+                ? props.translator[14].title_app_fr
+                : props.translator[14].title_app_en}
             </h1>
+            {/*fin titre de présentation du projet*/}
+
+            {/*container de présentation du module weather Ip*/}
             <h2 className="mx-2 mt-2 mb-1 text-left text-slate-100">
               {browser === "fr"
                 ? props.translator[2].geolocalisation_fr
                 : props.translator[2].geolocalisation_en}
             </h2>
-            <LocationIp
+            <WeatherIp
               browser={browser}
               cityLanguageFrench={cityLanguageFrench}
               countryLanguageFrench={countryLanguageFrench}
@@ -83,6 +99,16 @@ export default function Home(props) {
               flag={flag}
               translator={props.translator}
             />
+            {/* fin du container weather IP */}
+            {/* début container weather search élément fixe de présentation*/}
+            <h2 className="mx-2 mt-2 mb-1 text-left text-slate-100">
+              {browser === "fr"
+                ? props.translator[3].weather_search_fr
+                : props.translator[3].weather_search_en}
+            </h2>
+            {/* fin du container weather search */}
+            {/* Insertion module input search weather ville ou pays /> */}
+            <SearchInputWeather />
           </div>
         </div>
         <div className="hidden sm:block relative flex-1">{Data.images[0]}</div>
@@ -90,9 +116,6 @@ export default function Home(props) {
     </div>
   );
 }
-
-// url api visualcrossing_furure date and current date = ""
-// url api visualcrossing_next_days_hour = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/France?iconSet=icons2&key=6EEVCW7BTCDAXQBWHNXLGF3ZR&lang=fr"
 
 export async function getStaticProps() {
   const keyIp = "7bee4c110b8a43849ebeb6b837154eae";

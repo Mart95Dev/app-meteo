@@ -15,9 +15,29 @@
       "geolocalisation_fr":"MÉTÉO DE VOTRE GÉOLOCALISATION:"
     },
     {
+     
+      "weather_search_en":"INDICATE THE CITY OR COUNTRY TO SEARCH FOR THE WEATHER:",  
+      "weather_search_fr":"INDIQUEZ LA VILLE OU LE PAYS POUR RECHERCHER LA METEO:"
+    },
+    {
+     
+      "search_city_country_en":"City or Country",  
+      "search_city_country_fr":"Ville ou Pays"
+    },
+    {
       
-      "weather_en":"WEATHER",  
-      "weather_fr":"MÉTÉO"
+      "button_search_en":"Search",  
+      "button_search_fr":"Rechercher"
+    },
+    {
+      
+      "titile_navigator_en":"Weather application with next JS",  
+      "title_navigator_fr":"Application météo avec next JS"
+    },
+    {
+      
+      "title_content_en":"Build a weather application with Next JS + base with Firebase",  
+      "title_content_fr":"Réaliser une application météo avec Next JS + base avec Firebase"
     },
     {
       
@@ -46,6 +66,10 @@
     {    
       "uv_en":"UV Value",  
       "uv_fr":"Coef UV"
+    },
+    {    
+      "title_app_en":"WEATHER",  
+      "title_app_fr":"MÉTÉO"
     } 
   
   ]

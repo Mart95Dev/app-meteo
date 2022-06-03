@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Weather from "../components/Weather";
+import Weather from "../components/moduleWeather";
 import axios from "axios";
 
-export default function LocationIp({
+export default function weatherIp({
   browser,
   cityLanguageFrench,
   countryLanguageFrench,
@@ -73,29 +73,9 @@ export default function LocationIp({
             browser={browser}
           />
         ) : (
-          <p>En cours de chargement</p>
+          <p>En cours de chargement...</p>
         )}
       </div>
-      {/*Partie JSX input search météo ville ou pays /> */}
-      <h2 className="mx-2 mt-1 mb-1 text-left text-slate-100 drop-shadow-lg">
-        INDIQUEZ LA VILLE OU LE PAYS POUR RECHERCHER LA METEO
-      </h2>
-      <div className=" font-sans mt-1 px-1 py-0 mr-1 ml-1 border-2 border-slate-100 rounded w-auto bg-gray-50/[0.9] drop-shadow-lg">
-        <form>
-          <div className="flex">
-            <input
-              className="block border-0 outline-0 mx-auto w-1/2 px-2 bg-transparent border-b border-sky-300 italic"
-              type="text"
-              value=""
-              placeholder="Ville ou Pays"
-            />
-            <button className="border-2 bg-sky-300 rounded w-2/5">
-              Rechercher
-            </button>
-          </div>
-        </form>
-      </div>
-      <div>ici resultats recherche méteo ville ou pays</div>
     </>
   );
 }
