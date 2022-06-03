@@ -31,7 +31,7 @@
     },
     {
       
-      "titile_navigator_en":"Weather application with next JS",  
+      "title_navigator_en":"Weather application with next JS",  
       "title_navigator_fr":"Application météo avec next JS"
     },
     {
@@ -70,6 +70,10 @@
     {    
       "title_app_en":"WEATHER",  
       "title_app_fr":"MÉTÉO"
+    },
+    {    
+      "title_result_search_en":"This is the weather:",  
+      "title_result_search_fr":"Voici la météo:"
     } 
   
   ]

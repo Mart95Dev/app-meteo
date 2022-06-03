@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import Data from "../data/pictures";
 import WeatherIp from "../components/weatherIp";
-import SearchInputWeather from "../components/weatherSearch";
+import WeatherSearch from "../components/weatherSearch";
 
 export default function Home(props) {
   console.log(props.translator);
@@ -54,9 +54,8 @@ export default function Home(props) {
         <title>
           {" "}
           {browser === "fr"
-            ? props.translator[6].titlenavigator_fr
+            ? props.translator[6].title_navigator_fr
             : props.translator[6].title_navigator_en}
-          Application météo avec next JS
         </title>
         <meta
           name="description"
@@ -106,12 +105,14 @@ export default function Home(props) {
                 ? props.translator[3].weather_search_fr
                 : props.translator[3].weather_search_en}
             </h2>
+            <WeatherSearch browser={browser} translator={props.translator} />
             {/* fin du container weather search */}
-            {/* Insertion module input search weather ville ou pays /> */}
-            <SearchInputWeather />
           </div>
+
+          {/* debut photo de présentation sur app meteo */}
         </div>
         <div className="hidden sm:block relative flex-1">{Data.images[0]}</div>
+        {/* debut photo de présentation sur app meteo */}
       </main>
     </div>
   );
