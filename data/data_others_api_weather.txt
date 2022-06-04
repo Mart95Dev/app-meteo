@@ -1,0 +1,10 @@
+// key api openweather = `4b3031b22dbbe5a92df050da62b15307`
+// url api openweather_current = "https://api.openweathermap.org/data/2.5/weather?q=London&appid=4b3031b22dbbe5a92df050da62b15307&lang=en&units=metric"
+// url api openweather_current = "https://api.openweathermap.org/data/2.5/forecast/daily?cnt=5&q=London&appid=4b3031b22dbbe5a92df050da62b15307&lang=en&units=metric"
+
+// key api weather api = `dca9bf60966d4dd9a2f120022222705`
+// url api weather api = "https://api.weatherapi.com/v1/search.json?key=dca9bf60966d4dd9a2f120022222705&q=paris"
+// url api weather api = "https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&q=paris&lang=fr"
+
+
+dca9bf60966d4dd9a2f120022222705

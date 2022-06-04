@@ -1,0 +1,80 @@
+{
+  "translator":[
+    {      
+      "country_en":"Country",  
+      "country_fr":"Pays"
+    },
+    {
+      
+      "capital_en":"Capital city",  
+      "capital_fr":"Capitale"
+    },
+    {
+     
+      "geolocalisation_en":"WEATHER FROM YOUR GEOLOCATION:",  
+      "geolocalisation_fr":"MÉTÉO DE VOTRE GÉOLOCALISATION:"
+    },
+    {
+     
+      "weather_search_en":"INDICATE THE CITY OR COUNTRY TO SEARCH FOR THE WEATHER:",  
+      "weather_search_fr":"INDIQUEZ LA VILLE OU LE PAYS POUR RECHERCHER LA METEO:"
+    },
+    {
+     
+      "search_city_country_en":"City or Country",  
+      "search_city_country_fr":"Ville ou Pays"
+    },
+    {
+      
+      "button_search_en":"Search",  
+      "button_search_fr":"Rechercher"
+    },
+    {
+      
+      "title_navigator_en":"Weather application with next JS",  
+      "title_navigator_fr":"Application météo avec next JS"
+    },
+    {
+      
+      "title_content_en":"Build a weather application with Next JS + base with Firebase",  
+      "title_content_fr":"Réaliser une application météo avec Next JS + base avec Firebase"
+    },
+    {
+      
+      "feelslike_en":" Feels like",  
+      "feelslike_fr":"Temp ressenti"
+    },
+    {
+    
+      "temp_en":"Temp",
+      "temp_fr":"Temp"
+    },
+    {
+    
+      "precip_mm_en":"Rain",
+      "precip_mm_fr":"Pluie"
+    },
+    {
+      
+      "wind_speed_en":"Wind",  
+      "wind_speed_fr":"Vent"
+    },
+    {    
+      "humidity_en":"Humidity", 
+      "humidity_fr": "Humidité"
+    },   
+    {    
+      "uv_en":"UV Value",  
+      "uv_fr":"Coef UV"
+    },
+    {    
+      "title_app_en":"WEATHER",  
+      "title_app_fr":"MÉTÉO"
+    },
+    {    
+      "title_result_search_en":"This is the weather:",  
+      "title_result_search_fr":"Voici la météo:"
+    } 
+  
+  ]
+}
