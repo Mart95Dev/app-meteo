@@ -49,37 +49,37 @@ export default function weatherIp({ browser, translator }) {
           >
             {browser === "fr"
               ? translator[5].button_search_fr
-              : translator[5].button_search_fr}
+              : translator[5].button_search_en}
           </button>
         </div>
       </div>
       {/* fin du modult input search ville ou pays */}
 
       {/* début module results weather search ville ou pays*/}
-      <div className="px-1 py-0 mr-1 ml-1 border-2 border-slate-100 rounded w-auto bg-gray-50/[0.9] drop-shadow-lg">
-        <div className="text-center ">
-          <div className="mx-24 border-b border-sky-300">
-            {/* <span className="mr-2 text-center">
-            {browser === "fr"
-              ? translator[15].title_result_search_fr
-              : translator[15].title_result_search_en}
-          </span> */}
-            <span className="font-semibold capitalize text-md italic">
-              {word}
-            </span>
+      {word === "" ? (
+        <div></div>
+      ) : (
+        <div className="px-1 py-0 mr-1 ml-1 border-2 border-slate-100 rounded w-auto bg-gray-50/[0.9] drop-shadow-lg">
+          <div className="text-center ">
+            <div className="mx-24 border-b border-sky-300">
+              <span className="font-semibold capitalize text-md italic">
+                {word}
+              </span>
+            </div>
           </div>
+          )p
+          {dbWeather ? (
+            <Weather
+              weather={dbWeather}
+              translator={translator}
+              browser={browser}
+            />
+          ) : (
+            <p></p>
+          )}
         </div>
+      )}
 
-        {dbWeather ? (
-          <Weather
-            weather={dbWeather}
-            translator={translator}
-            browser={browser}
-          />
-        ) : (
-          <p></p>
-        )}
-      </div>
       {/* fin module results weather search ville ou pays*/}
     </>
   );

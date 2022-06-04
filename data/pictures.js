@@ -1,11 +1,12 @@
 import Image from "next/image";
 import ImgDefault from "../public/assets/bg-weather.jpg";
-import ImgCloud from "../public/assets/cloud.jpg";
-import ImgRain from "../public/assets/rain.jpg";
-import ImgSky from "../public/assets/sky.jpg";
-import ImgSnow from "../public/assets/snow.jpg";
-import ImgStorm from "../public/assets/storm.jpg";
-import ImgSun from "../public/assets/sun.jpg";
+import ImgCloud from "../public/assets/cloud2.jpg";
+import ImgRain from "../public/assets/rain2.jpg";
+import ImgSky from "../public/assets/sky2.jpg";
+import ImgSnow from "../public/assets/snow2.jpg";
+import ImgFreezing from "../public/assets/freezing.jpg";
+import ImgThunder from "../public/assets/thunder.jpg";
+import ImgSun from "../public/assets/freezing.jpg";
 import ImgWind from "../public/assets/wind.jpg";
 
 const images = [
@@ -54,7 +55,15 @@ const images = [
     layout="fill"
     objectFit="cover"
     placeholder="blur"
-    src={ImgStorm}
+    src={ImgFreezing}
+    // width="4096"
+    // height="2731"
+  />,
+  <Image
+    layout="fill"
+    objectFit="cover"
+    placeholder="blur"
+    src={ImgThunder}
     // width="4096"
     // height="2731"
   />,

@@ -134,12 +134,18 @@ export async function getStaticProps() {
   const data4 = await import("../data/translator.json");
   const translator = data4.translator;
 
+  const data5 = await fetch(
+    "https://www.weatherapi.com/docs/weather_conditions.json"
+  );
+  const codeWeather = await data5.json();
+
   return {
     props: {
       location,
       country,
       city,
       translator,
+      codeWeather,
     },
   };
 }

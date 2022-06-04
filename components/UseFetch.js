@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 
+// Hook personnalisé pour appeler l'api weather en fonction de la recherche
+
 function UseFetch(url) {
   const [dbWeather, setDbWeather] = useState(null);
   const [loading, setLoading] = useState(false);
