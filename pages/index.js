@@ -6,7 +6,7 @@ import WeatherIp from "../components/weatherIp";
 import WeatherSearch from "../components/weatherSearch";
 
 export default function Home(props) {
-  console.log(props.translator);
+  // console.log(props.translator);
 
   // creer des variables pour les props pour le module location
   const [browser, setBrowser] = useState("");

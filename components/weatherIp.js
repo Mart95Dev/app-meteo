@@ -23,7 +23,7 @@ export default function weatherIp({
       apiUrl = `http://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=en&q=${countryName}`;
     }
     const { data } = await axios(apiUrl);
-    setDbWeather(data.current);
+    setDbWeather(data);
   };
 
   useEffect(() => {
