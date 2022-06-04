@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Weather from "../components/moduleWeather";
+import Weather from "./ModuleWeather";
 import axios from "axios";
 
-export default function weatherIp({
+export default function WeatherIp({
   browser,
   cityLanguageFrench,
   countryLanguageFrench,

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Weather from "../components/moduleWeather";
+import Weather from "./ModuleWeather";
 import useFetch from "./UseFetch";
 
-export default function weatherIp({ browser, translator }) {
+export default function WeatherIp({ browser, translator }) {
   const [location, setLocation] = useState("");
   const [word, setWord] = useState("");
 
