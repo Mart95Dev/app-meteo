@@ -20,13 +20,6 @@ export default function weatherIp({ browser, translator }) {
     setLocation("");
   };
 
-  // const temp = () => {
-  //   const temp = location;
-  // };
-
-  console.log(API_URL);
-  console.log(dbWeather);
-
   return (
     <>
       {/* Debut du modult input search ville ou pays */}
@@ -67,7 +60,6 @@ export default function weatherIp({ browser, translator }) {
               </span>
             </div>
           </div>
-          )p
           {dbWeather ? (
             <Weather
               weather={dbWeather}

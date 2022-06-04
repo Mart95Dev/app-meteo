@@ -1,19 +1,20 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import Data from "../data/pictures";
+import Pictures from "../data/pictures";
 import WeatherIp from "../components/weatherIp";
 import WeatherSearch from "../components/weatherSearch";
 
 export default function Home(props) {
-  // console.log(props.translator);
-
   // creer des variables pour les props pour le module location
   const [browser, setBrowser] = useState("");
   const [countryName, setCountryName] = useState(props.location.country_name);
   const [capitalCityName, setCapitalCityName] = useState(
     props.location.country_capital
   );
+
+  const randomImg =
+    Pictures.images[Math.floor(Math.random() * Pictures.images.length)];
 
   // afficher le pays du drapeau dans attribut alt
   const [flag, setFlag] = useState(props.location.country_flag);
@@ -111,7 +112,7 @@ export default function Home(props) {
 
           {/* debut photo de présentation sur app meteo */}
         </div>
-        <div className="hidden sm:block relative flex-1">{Data.images[0]}</div>
+        <div className="hidden sm:block relative flex-1">{randomImg}</div>
         {/* debut photo de présentation sur app meteo */}
       </main>
     </div>
@@ -134,10 +135,10 @@ export async function getStaticProps() {
   const data4 = await import("../data/translator.json");
   const translator = data4.translator;
 
-  const data5 = await fetch(
-    "https://www.weatherapi.com/docs/weather_conditions.json"
-  );
-  const codeWeather = await data5.json();
+  // const data5 = await fetch(
+  //   "https://www.weatherapi.com/docs/weather_conditions.json"
+  // );
+  // const codeWeather = await data5.json();
 
   return {
     props: {
@@ -145,7 +146,7 @@ export async function getStaticProps() {
       country,
       city,
       translator,
-      codeWeather,
+      // codeWeather,
     },
   };
 }

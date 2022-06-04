@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function Weather({ weather, translator, browser }) {
-  console.log(weather);
   return (
     <div className="mt-1 text-sm ">
       <div className="flex flex-col">
