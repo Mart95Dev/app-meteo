@@ -76,7 +76,7 @@ export default function Home(props) {
         >
           <div className="mx-auto w-full h-full">
             {/*Titre de présentation du projet*/}
-            <h1 className="mt-1 text-2xl text-center font-bold text-slate-50 md:text-3xl">
+            <h1 className="mt-1 text-2xl text-center font-bold text-slate-50 md:text-2xl">
               {browser === "fr"
                 ? props.translator[14].title_app_fr
                 : props.translator[14].title_app_en}
@@ -84,7 +84,7 @@ export default function Home(props) {
             {/*fin titre de présentation du projet*/}
 
             {/*container de présentation du module weather Ip*/}
-            <h2 className="mx-2 mt-2 mb-1 text-left text-slate-100">
+            <h2 className="mx-2 mt-2 mb-1 text-left text-slate-100 text-md">
               {browser === "fr"
                 ? props.translator[2].geolocalisation_fr
                 : props.translator[2].geolocalisation_en}
