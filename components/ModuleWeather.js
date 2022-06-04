@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Weather({ weather, translator, browser }) {
   return (
     <div className="mt-1 text-sm ">
