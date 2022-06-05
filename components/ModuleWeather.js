@@ -1,7 +1,8 @@
-import Image from "next/image";
+// import Image from "next/image";
 
 export default function Weather({ weather, translator, browser }) {
-  console.log(weather);
+  const urlIcon = weather.current.condition.icon;
+
   return (
     <div className="mt-1 text-sm ">
       <div className="flex flex-col">
@@ -14,14 +15,13 @@ export default function Weather({ weather, translator, browser }) {
           <div className="flex flex-row place-items-center">
             <span>
               {/* <Image
-                layout="fixed"
+                src={urlIcon}
                 width="64"
                 height="64"
-                src={weather.current.condition.icon}
                 alt={"icon qui siginifie " + weather.current.condition.text}
               /> */}
               <img
-                src={weather.current.condition.icon}
+                src={urlIcon}
                 alt={"icon qui siginifie " + weather.current.condition.text}
               />
             </span>
