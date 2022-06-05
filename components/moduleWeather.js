@@ -1,4 +1,4 @@
-// import Image from "next/image";
+import Image from "next/image";
 
 export default function Weather({ weather, translator, browser }) {
   const urlIcon = weather.current.condition.icon;
@@ -14,16 +14,16 @@ export default function Weather({ weather, translator, browser }) {
         <div className="flex space-x-16">
           <div className="flex flex-row place-items-center">
             <span>
-              {/* <Image
+              <Image
                 src={urlIcon}
                 width="64"
                 height="64"
                 alt={"icon qui siginifie " + weather.current.condition.text}
-              /> */}
-              <img
+              />
+              {/* <img
                 src={urlIcon}
                 alt={"icon qui siginifie " + weather.current.condition.text}
-              />
+              /> */}
             </span>
           </div>
           <div className="flex flex-col">
