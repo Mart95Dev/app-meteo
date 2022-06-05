@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Weather({ weather, translator, browser }) {
   return (
     <div className="mt-1 text-sm ">
@@ -10,7 +12,7 @@ export default function Weather({ weather, translator, browser }) {
         <div className="flex space-x-16">
           <div className="flex flex-row place-items-center">
             <span>
-              <img
+              <Image
                 src={weather.current.condition.icon}
                 alt={"icon qui siginifie " + weather.current.condition.text}
               />
