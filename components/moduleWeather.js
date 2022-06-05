@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function Weather({ weather, translator, browser }) {
+export default function ModuleWeather({ weather, translator, browser }) {
   const urlIcon = weather.current.condition.icon;
 
   return (
