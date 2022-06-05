@@ -14,19 +14,6 @@ export default function WeatherIp({
 }) {
   const [dbWeather, setDbWeather] = useState(null);
 
-  // recupération des données méteo depuis l'Api
-  // const getWeather = async () => {
-  //   let apiUrl = "";
-  //   const navigator = window.navigator.language.slice(0, 2);
-  //   if (navigator == "fr") {
-  //     apiUrl = `http://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=fr&q=${countryName}`;
-  //   } else {
-  //     apiUrl = `http://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=en&q=${countryName}`;
-  //   }
-  //   const { data } = await axios(apiUrl);
-  //   setDbWeather(data);
-  // };
-
   useEffect(() => {
     const getWeather = async () => {
       let apiUrl = "";
@@ -59,11 +46,6 @@ export default function WeatherIp({
               src={flag}
               alt={flagAlt}
             />
-            {/* <img
-              className="mt-1 border-2 border-gray-500 rounded min-w-80"
-              src={flag}
-              alt={flagAlt}
-            /> */}
           </li>
           <li>
             <span className="mr-2">

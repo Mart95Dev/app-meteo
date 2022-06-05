@@ -2,7 +2,6 @@ import Image from "next/image";
 
 export default function ModuleWeather({ weather, translator, browser }) {
   const urlIcon = `http:${weather.current.condition.icon}`;
-  console.log(urlIcon);
 
   return (
     <div className="mt-1 text-sm ">
@@ -21,10 +20,6 @@ export default function ModuleWeather({ weather, translator, browser }) {
                 height="64"
                 alt={"icon qui siginifie " + weather.current.condition.text}
               />
-              {/* <img
-                src={urlIcon}
-                alt={"icon qui siginifie " + weather.current.condition.text}
-              /> */}
             </span>
           </div>
           <div className="flex flex-col">
