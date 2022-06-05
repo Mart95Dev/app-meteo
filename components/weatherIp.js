@@ -42,7 +42,7 @@ export default function WeatherIp({
     getWeather();
   }, [countryName]);
 
-  //affichage de l'attribut image en fonction du drapeau de localisation
+  // //affichage de l'attribut image en fonction du drapeau de localisation
   const flagAlt = `Drapeau de ${countryName}`;
 
   return (
