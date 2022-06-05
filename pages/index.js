@@ -53,7 +53,6 @@ export default function Home(props) {
     <div>
       <Head>
         <title>
-          {" "}
           {browser === "fr"
             ? props.translator[6].title_navigator_fr
             : props.translator[6].title_navigator_en}

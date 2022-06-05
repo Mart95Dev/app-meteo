@@ -15,21 +15,32 @@ export default function WeatherIp({
   const [dbWeather, setDbWeather] = useState(null);
 
   // recupération des données méteo depuis l'Api
-  const getWeather = async () => {
-    let apiUrl = "";
-    const navigator = window.navigator.language.slice(0, 2);
-    if (navigator == "fr") {
-      apiUrl = `http://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=fr&q=${countryName}`;
-    } else {
-      apiUrl = `http://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=en&q=${countryName}`;
-    }
-    const { data } = await axios(apiUrl);
-    setDbWeather(data);
-  };
+  // const getWeather = async () => {
+  //   let apiUrl = "";
+  //   const navigator = window.navigator.language.slice(0, 2);
+  //   if (navigator == "fr") {
+  //     apiUrl = `http://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=fr&q=${countryName}`;
+  //   } else {
+  //     apiUrl = `http://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=en&q=${countryName}`;
+  //   }
+  //   const { data } = await axios(apiUrl);
+  //   setDbWeather(data);
+  // };
 
   useEffect(() => {
+    const getWeather = async () => {
+      let apiUrl = "";
+      const navigator = window.navigator.language.slice(0, 2);
+      if (navigator == "fr") {
+        apiUrl = `http://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=fr&q=${countryName}`;
+      } else {
+        apiUrl = `http://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=en&q=${countryName}`;
+      }
+      const { data } = await axios(apiUrl);
+      setDbWeather(data);
+    };
     getWeather();
-  }, []);
+  }, [countryName]);
 
   //affichage de l'attribut image en fonction du drapeau de localisation
   const flagAlt = `Drapeau de ${countryName}`;
@@ -40,7 +51,19 @@ export default function WeatherIp({
       <div className="px-1 py-0 mr-1 ml-1 border-2 border-slate-100 rounded w-auto bg-gray-50/[0.9] drop-shadow-lg">
         <ul className="flex space-x-20 space-y-0 items-center">
           <li>
-            <Image className="mt-1 border-2 border-gray-500 rounded min-w-80" />
+            <Image
+              layout="fixed"
+              width="64"
+              height="43"
+              className="mt-1 border-2 border-gray-500 rounded min-w-80"
+              src={flag}
+              alt={flagAlt}
+            />
+            {/* <img
+              className="mt-1 border-2 border-gray-500 rounded min-w-80"
+              src={flag}
+              alt={flagAlt}
+            /> */}
           </li>
           <li>
             <span className="mr-2">
