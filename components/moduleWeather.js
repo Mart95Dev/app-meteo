@@ -1,7 +1,8 @@
 import Image from "next/image";
 
 export default function ModuleWeather({ weather, translator, browser }) {
-  const urlIcon = weather.current.condition.icon;
+  const urlIcon = `http:${weather.current.condition.icon}`;
+  console.log(urlIcon);
 
   return (
     <div className="mt-1 text-sm ">
