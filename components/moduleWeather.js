@@ -2,6 +2,13 @@ import Image from "next/image";
 
 export default function ModuleWeather({ weather, translator, browser }) {
   const urlIcon = `http:${weather.current.condition.icon}`;
+  const fileIcon = urlIcon.slice(44);
+
+  const myLoader2 = ({ src, width, quality }) => {
+    return `http://cdn.weatherapi.com/weather/64x64/day/${src}?w=${width}&q=${
+      quality || 75
+    }`;
+  };
 
   return (
     <div className="mt-1 text-sm ">
@@ -15,11 +22,11 @@ export default function ModuleWeather({ weather, translator, browser }) {
           <div className="flex flex-row place-items-center">
             <span>
               <Image
-                src={urlIcon}
-                width="64"
-                height="64"
+                loader={myLoader2}
+                src={fileIcon}
+                width={64}
+                height={64}
                 alt={"icon qui siginifie " + weather.current.condition.text}
-                unoptimized
               />
             </span>
           </div>

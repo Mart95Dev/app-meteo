@@ -14,6 +14,15 @@ export default function WeatherIp({
 }) {
   const [dbWeather, setDbWeather] = useState(null);
 
+  const file = flag.slice(38);
+
+  const myLoader = ({ src, width, quality }) => {
+    // return `https://example.com/${src}?w=${width}&q=${quality || 75}`;
+    return `https://ipgeolocation.io/static/flags/${src}?w=${width}&q=${
+      quality || 75
+    }`;
+  };
+
   useEffect(() => {
     const getWeather = async () => {
       let apiUrl = "";
@@ -39,13 +48,13 @@ export default function WeatherIp({
         <ul className="flex space-x-20 space-y-0 items-center">
           <li>
             <Image
+              loader={myLoader}
               layout="fixed"
-              width="64"
-              height="43"
+              width={64}
+              height={43}
               className="mt-1 border-2 border-gray-500 rounded min-w-80"
-              src={flag}
+              src={file}
               alt={flagAlt}
-              unoptimized
             />
           </li>
           <li>
