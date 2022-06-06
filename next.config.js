@@ -11,15 +11,10 @@ module.exports = {
   },
   nextConfig,
   images: {
-    loader: "custom",
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    nextImageExportOptimizer: {
-      imageFolderPath: "public/assets",
-      exportFolderPath: "out",
-      quality: 75,
-      domains: ["cdn.weatherapi.com", "ipgeolocation.io"],
-    },
+    imageFolderPath: "public/assets",
+    exportFolderPath: "out",
+    quality: 75,
+    domains: ["cdn.weatherapi.com", "ipgeolocation.io"],
   },
   env: {
     storePicturesInWEBP: true,

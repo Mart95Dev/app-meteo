@@ -1,5 +1,5 @@
-// import Image from "next/image";
-import ExportedImage from "next-image-export-optimizer";
+import Image from "next/image";
+
 import ImgDefault from "../public/assets/bg-weather.jpg";
 import ImgCloud from "../public/assets/cloud2.jpg";
 import ImgRain from "../public/assets/rain2.jpg";
@@ -11,7 +11,7 @@ import ImgSun from "../public/assets/freezing.jpg";
 import ImgWind from "../public/assets/wind.jpg";
 
 const images = [
-  <ExportedImage
+  <Image
     layout="fill"
     loading="lazy"
     objectFit="cover"
@@ -20,7 +20,7 @@ const images = [
     // width="3840"
     // height="5760"
   />,
-  <ExportedImage
+  <Image
     layout="fill"
     loading="lazy"
     objectFit="cover"
@@ -30,7 +30,7 @@ const images = [
     // height="5126"
     // className="h-full w-full object-cover"
   />,
-  <ExportedImage
+  <Image
     layout="fill"
     loading="lazy"
     objectFit="cover"
@@ -39,7 +39,7 @@ const images = [
     // width="6480"
     // height="4320"
   />,
-  <ExportedImage
+  <Image
     layout="fill"
     loading="lazy"
     objectFit="cover"
@@ -48,7 +48,7 @@ const images = [
     // width="4480"
     // height="6720"
   />,
-  <ExportedImage
+  <Image
     layout="fill"
     loading="lazy"
     objectFit="cover"
@@ -57,7 +57,7 @@ const images = [
     // width="4288"
     // height="2848"
   />,
-  <ExportedImage
+  <Image
     layout="fill"
     loading="lazy"
     objectFit="cover"
@@ -66,7 +66,7 @@ const images = [
     // width="4096"
     // height="2731"
   />,
-  <ExportedImage
+  <Image
     layout="fill"
     loading="lazy"
     objectFit="cover"
@@ -75,7 +75,7 @@ const images = [
     // width="4096"
     // height="2731"
   />,
-  <ExportedImage
+  <Image
     layout="fill"
     loading="lazy"
     objectFit="cover"
@@ -84,7 +84,7 @@ const images = [
     // width="2832"
     // height="4240"
   />,
-  <ExportedImage
+  <Image
     layout="fill"
     loading="lazy"
     objectFit="cover"

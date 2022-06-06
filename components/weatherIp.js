@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Weather from "./ModuleWeather";
 import axios from "axios";
-// import Image from "next/image";
-import ExportedImage from "next-image-export-optimizer";
+import Image from "next/image";
 
 export default function WeatherIp({
   browser,
@@ -39,9 +38,8 @@ export default function WeatherIp({
       <div className="px-1 py-0 mr-1 ml-1 border-2 border-slate-100 rounded w-auto bg-gray-50/[0.9] drop-shadow-lg">
         <ul className="flex space-x-20 space-y-0 items-center">
           <li>
-            <ExportedImage
+            <Image
               layout="fixed"
-              loading="lazy"
               width="64"
               height="43"
               className="mt-1 border-2 border-gray-500 rounded min-w-80"
