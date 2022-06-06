@@ -12,6 +12,7 @@ import ImgWind from "../public/assets/wind.jpg";
 const images = [
   <Image
     layout="fill"
+    loading="lazy"
     objectFit="cover"
     placeholder="blur"
     src={ImgDefault}
@@ -20,6 +21,7 @@ const images = [
   />,
   <Image
     layout="fill"
+    loading="lazy"
     objectFit="cover"
     placeholder="blur"
     src={ImgCloud}
@@ -29,6 +31,7 @@ const images = [
   />,
   <Image
     layout="fill"
+    loading="lazy"
     objectFit="cover"
     placeholder="blur"
     src={ImgRain}
@@ -37,6 +40,7 @@ const images = [
   />,
   <Image
     layout="fill"
+    loading="lazy"
     objectFit="cover"
     placeholder="blur"
     src={ImgSky}
@@ -45,6 +49,7 @@ const images = [
   />,
   <Image
     layout="fill"
+    loading="lazy"
     objectFit="cover"
     placeholder="blur"
     src={ImgSnow}
@@ -53,6 +58,7 @@ const images = [
   />,
   <Image
     layout="fill"
+    loading="lazy"
     objectFit="cover"
     placeholder="blur"
     src={ImgFreezing}
@@ -61,6 +67,7 @@ const images = [
   />,
   <Image
     layout="fill"
+    loading="lazy"
     objectFit="cover"
     placeholder="blur"
     src={ImgThunder}
@@ -69,6 +76,7 @@ const images = [
   />,
   <Image
     layout="fill"
+    loading="lazy"
     objectFit="cover"
     placeholder="blur"
     src={ImgSun}
@@ -77,6 +85,7 @@ const images = [
   />,
   <Image
     layout="fill"
+    loading="lazy"
     objectFit="cover"
     placeholder="blur"
     src={ImgWind}

@@ -40,6 +40,7 @@ export default function WeatherIp({
           <li>
             <Image
               layout="fixed"
+              loading="lazy"
               width="64"
               height="43"
               className="mt-1 border-2 border-gray-500 rounded min-w-80"

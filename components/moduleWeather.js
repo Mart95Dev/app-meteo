@@ -16,6 +16,7 @@ export default function ModuleWeather({ weather, translator, browser }) {
             <span>
               <Image
                 src={urlIcon}
+                loading="lazy"
                 width="64"
                 height="64"
                 alt={"icon qui siginifie " + weather.current.condition.text}
