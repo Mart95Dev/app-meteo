@@ -1,12 +1,12 @@
 import Image from "next/image";
 
 export default function Moduleweather({ weather, translator, browser }) {
-  const urlIcon = `http:${weather.current.condition.icon}`;
+  const urlIcon = `https:${weather.current.condition.icon}`;
   const fileIcon = urlIcon.slice(44);
   // const test1 = "";
 
   const myLoader2 = ({ src, width, quality }) => {
-    return `http://cdn.weatherapi.com/weather/64x64/day/${src}?w=${width}&q=${
+    return `https://cdn.weatherapi.com/weather/64x64/day/${src}?w=${width}&q=${
       quality || 75
     }`;
   };
