@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function moduleweather({ weather, translator, browser }) {
+export default function Moduleweather({ weather, translator, browser }) {
   const urlIcon = `http:${weather.current.condition.icon}`;
   const fileIcon = urlIcon.slice(44);
   // const test1 = "";

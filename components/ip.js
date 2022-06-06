@@ -3,7 +3,7 @@ import Weather from "./moduleweather";
 import axios from "axios";
 import Image from "next/image";
 
-export default function ip({
+export default function Ip({
   browser,
   cityLanguageFrench,
   countryLanguageFrench,

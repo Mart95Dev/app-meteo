@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Weather from "./moduleweather";
 import useFetch from "./usefetch";
 
-export default function search({ browser, translator }) {
+export default function Search({ browser, translator }) {
   const [location, setLocation] = useState("");
   const [word, setWord] = useState("");
 

@@ -3,7 +3,7 @@ import axios from "axios";
 
 // Hook personnalisé pour appeler l'api weather en fonction de la recherche
 
-function usefetch(url) {
+function UseFetch(url) {
   const [dbWeather, setDbWeather] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -28,4 +28,4 @@ function usefetch(url) {
   return { dbWeather, loading, error, searchWeather };
 }
 
-export default usefetch;
+export default UseFetch;
