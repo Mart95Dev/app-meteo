@@ -2,8 +2,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import Pictures from "../data/pictures";
-import WeatherIp from "../components/weatherip";
-import WeatherSearch from "../components/weathersearch";
+import WeatherIp from "../components/ip";
+import WeatherSearch from "../components/search";
 
 export default function Home(props) {
   // creer des variables pour les props pour le module location
