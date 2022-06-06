@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Weather from "./ModuleWeather";
+import Weather from "./moduleweather";
 import axios from "axios";
 import Image from "next/image";
 

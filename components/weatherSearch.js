@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Weather from "./ModuleWeather";
-import useFetch from "./UseFetch";
+import Weather from "./moduleweather";
+import useFetch from "./usefetch";
 
 export default function WeatherSearch({ browser, translator }) {
   const [location, setLocation] = useState("");
