@@ -6,7 +6,7 @@ export default function Search({ browser, translator }) {
   const [location, setLocation] = useState("");
   const [word, setWord] = useState("");
 
-  const API_URL = `http://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=${browser}&q=${location}`;
+  const API_URL = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=${browser}&q=${location}`;
 
   const { dbWeather, loading, error, searchWeather } = useFetch(API_URL);
 
