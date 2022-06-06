@@ -4,13 +4,7 @@ const nextConfig = {
 };
 
 module.exports = {
-  resolve: {
-    modules: [resolve(process.cwd(), "src"), "node_modules"],
-    extensions: ["*", ".js", ".jsx", ".json"],
-    symlinks: false,
-    cacheWithContext: false,
-  },
-  eslint: {
+  npmeslint: {
     // Warning: This allows production builds to successfully complete even if
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
