@@ -1,4 +1,5 @@
-import Image from "next/image";
+// import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 
 export default function ModuleWeather({ weather, translator, browser }) {
   const urlIcon = `http:${weather.current.condition.icon}`;
@@ -14,7 +15,7 @@ export default function ModuleWeather({ weather, translator, browser }) {
         <div className="flex space-x-16">
           <div className="flex flex-row place-items-center">
             <span>
-              <Image
+              <ExportedImage
                 src={urlIcon}
                 loading="lazy"
                 width="64"
