@@ -19,6 +19,7 @@ export default function ModuleWeather({ weather, translator, browser }) {
                 width="64"
                 height="64"
                 alt={"icon qui siginifie " + weather.current.condition.text}
+                unoptimized
               />
             </span>
           </div>

@@ -45,6 +45,7 @@ export default function WeatherIp({
               className="mt-1 border-2 border-gray-500 rounded min-w-80"
               src={flag}
               alt={flagAlt}
+              unoptimized
             />
           </li>
           <li>
