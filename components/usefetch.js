@@ -28,4 +28,4 @@ function usefetch(url) {
   return { dbWeather, loading, error, searchWeather };
 }
 
-export default UseFetch;
+export default usefetch;
