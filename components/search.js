@@ -21,11 +21,11 @@ export default function Search({ browser, translator }) {
     setLocation("");
   };
 
-  const displayResultWeather = () => {
-    if (word === "") {
-      <div></div>;
-    }
-  };
+  // const displayResultWeather = () => {
+  //   if (word === "") {
+  //     <div></div>;
+  //   }
+  // };
 
   // useEffect(() => {
   //   const input = document.getElementById("search");

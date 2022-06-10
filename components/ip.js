@@ -41,7 +41,7 @@ export default function Ip({
       setDbWeather(data);
     };
     getWeather();
-  }, [countryName]);
+  }, [ipBrowser]);
 
   // //affichage de l'attribut image en fonction du drapeau de localisation
   const flagAlt = `Drapeau de ${countryName}`;
