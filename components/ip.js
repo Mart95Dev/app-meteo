@@ -14,12 +14,13 @@ export default function Ip({
   ipBrowser,
 }) {
   const [dbWeather, setDbWeather] = useState(null);
+  // const [latitude, setLatitude] = useState("");
+  // const [longitude, setLongitude] = useState("");
 
   const file = flag.slice(38);
 
   // fonction optimisation image pour next et éviter les erreurs
   const myLoader = ({ src, width, quality }) => {
-    // return `https://example.com/${src}?w=${width}&q=${quality || 75}`;
     return `https://ipgeolocation.io/static/flags/${src}?w=${width}&q=${
       quality || 75
     }`;
@@ -27,14 +28,58 @@ export default function Ip({
 
   // chargement de la base weather à la géolocalisation
   useEffect(() => {
+    // get visitor's location
+    // function getLocation() {
+    //   if (navigator.geolocation) {
+    //     navigator.geolocation.getCurrentPosition(showPosition, handleError);
+    //   } else {
+    //     console.error("Geolocation is not supported by this browser.");
+    //   }
+    // }
+
+    // watch visitor's location
+    // function watchLocation() {
+    //   if (navigator.geolocation) {
+    //     navigator.geolocation.watchPosition(showPosition, handleError);
+    //   } else {
+    //     console.error("Geolocation is not supported by this browser.");
+    //   }
+    // }
+
+    // function handleError(error) {
+    //   let errorStr;
+    //   switch (error.code) {
+    //     case error.PERMISSION_DENIED:
+    //       errorStr = 'User denied the request for Geolocation.';
+    //       break;
+    //     case error.POSITION_UNAVAILABLE:
+    //       errorStr = 'Location information is unavailable.';
+    //       break;
+    //     case error.TIMEOUT:
+    //       errorStr = 'The request to get user location timed out.';
+    //       break;
+    //     case error.UNKNOWN_ERROR:
+    //       errorStr = 'An unknown error occurred.';
+    //       break;
+    //     default:
+    //       errorStr = 'An unknown error occurred.';
+    //   }
+    //   console.error('Error occurred: ' + errorStr);
+    // }
+
+    // function showPosition(position) {
+    //   setLatitude(position.coords.latitude)
+    //   setLongitude(position.coords.longitude)
+    //   console.log(`Latitude: ${position.coords.latitude}, longitude: ${position.coords.longitude}`;
+    // }
     const getWeather = async () => {
       let apiUrl = "";
       const navigator = window.navigator.language.slice(0, 2);
       if (navigator == "fr") {
-        apiUrl = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=fr&ip=${ipBrowser}&q=${countryName}`;
+        apiUrl = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=fr&q=${ipBrowser}`;
         console.log(apiUrl);
       } else {
-        apiUrl = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=en&ip=${ipBrowser}&q=${countryName}`;
+        apiUrl = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=en&q=${ipBrowser}`;
         console.log(apiUrl);
       }
       const { data } = await axios(apiUrl);
@@ -57,7 +102,7 @@ export default function Ip({
               layout="fixed"
               width={64}
               height={43}
-              className="mt-1 border-2 border-gray-500 rounded min-w-80"
+              className="mt-1 border-2  border-gray-500 rounded min-w-80"
               src={file}
               alt={flagAlt}
             />

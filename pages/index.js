@@ -6,13 +6,13 @@ import WeatherIp from "../components/ip";
 import WeatherSearch from "../components/search";
 
 export default function Home(props) {
+  console.log(props.ipLocation.ip);
   // creer des variables pour les props pour le module location
   const [browser, setBrowser] = useState("");
   const [countryName, setCountryName] = useState(props.location.country_name);
   const [capitalCityName, setCapitalCityName] = useState(
     props.location.country_capital
   );
-  const [ipBrowser, setIpBrowser] = useState(props.ipLocation.ip);
 
   // choix aléatoire de sphotos au rechargement de la page
   const randomImg =
@@ -99,7 +99,7 @@ export default function Home(props) {
               capitalCityName={capitalCityName}
               flag={flag}
               translator={props.translator}
-              ipBrowser={ipBrowser}
+              ipBrowser={props.ipLocation.ip}
             />
             {/* fin du container weather IP */}
             {/* début container weather search élément fixe de présentation*/}
@@ -122,8 +122,8 @@ export default function Home(props) {
 }
 
 export async function getStaticProps() {
-  const urlLocation = "https://api.ipify.org/?format=json";
-  const data0 = await fetch(urlLocation);
+  const urlIp = "https://api.ipify.org/?format=json";
+  const data0 = await fetch(urlIp);
   const ipLocation = await data0.json();
 
   const keyIp = "7bee4c110b8a43849ebeb6b837154eae";
