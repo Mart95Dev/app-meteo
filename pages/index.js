@@ -6,7 +6,6 @@ import WeatherIp from "../components/ip";
 import WeatherSearch from "../components/search";
 
 export default function Home(props) {
-  console.log(props.ipLocation.ip);
   // creer des variables pour les props pour le module location
   const [browser, setBrowser] = useState("");
   const [countryName, setCountryName] = useState(props.location.country_name);
@@ -99,7 +98,7 @@ export default function Home(props) {
               capitalCityName={capitalCityName}
               flag={flag}
               translator={props.translator}
-              ipBrowser={props.ipLocation.ip}
+              // ipBrowser={props.ipLocation.ip}
             />
             {/* fin du container weather IP */}
             {/* début container weather search élément fixe de présentation*/}
@@ -122,9 +121,9 @@ export default function Home(props) {
 }
 
 export async function getStaticProps() {
-  const urlIp = "https://api.ipify.org/?format=json";
-  const data0 = await fetch(urlIp);
-  const ipLocation = await data0.json();
+  // const urlIp = "https://api.ipify.org/?format=json";
+  // const data0 = await fetch(urlIp);
+  // const ipLocation = await data0.json();
 
   const keyIp = "7bee4c110b8a43849ebeb6b837154eae";
   const url = `https://api.ipgeolocation.io/ipgeo?apiKey=${keyIp}`;
@@ -147,7 +146,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      ipLocation,
+      // ipLocation,
       location,
       country,
       city,

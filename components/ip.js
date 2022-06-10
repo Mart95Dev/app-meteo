@@ -14,8 +14,8 @@ export default function Ip({
   ipBrowser,
 }) {
   const [dbWeather, setDbWeather] = useState(null);
-  // const [latitude, setLatitude] = useState("");
-  // const [longitude, setLongitude] = useState("");
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
 
   const file = flag.slice(38);
 
@@ -76,17 +76,17 @@ export default function Ip({
       let apiUrl = "";
       const navigator = window.navigator.language.slice(0, 2);
       if (navigator == "fr") {
-        apiUrl = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=fr&q=${ipBrowser}`;
+        apiUrl = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=fr&q=auto:ip`;
         console.log(apiUrl);
       } else {
-        apiUrl = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=en&q=${ipBrowser}`;
+        apiUrl = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=en&q=auto:ip`;
         console.log(apiUrl);
       }
       const { data } = await axios(apiUrl);
       setDbWeather(data);
     };
     getWeather();
-  }, [ipBrowser]);
+  }, []);
 
   // //affichage de l'attribut image en fonction du drapeau de localisation
   const flagAlt = `Drapeau de ${countryName}`;
