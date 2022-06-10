@@ -5,6 +5,7 @@ import useFetch from "./usefetch";
 export default function Search({ browser, translator }) {
   const [location, setLocation] = useState("");
   const [word, setWord] = useState("");
+  const [testError, setTestError] = useState(false);
 
   const API_URL = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=${browser}&q=${location}`;
 
@@ -12,7 +13,7 @@ export default function Search({ browser, translator }) {
 
   if (loading)
     return <span className="text-slate-100">En cours de chargement....</span>;
-  if (error) return console.log(error);
+  if (error) return setTestError(true);
 
   const validButton = () => {
     searchWeather();
@@ -20,16 +21,35 @@ export default function Search({ browser, translator }) {
     setLocation("");
   };
 
+  const displayResultWeather = () => {
+    if (word === "") {
+      <div></div>;
+    }
+  };
+
+  // useEffect(() => {
+  //   const input = document.getElementById("search");
+  //   input.addEventListener("keydown", detectKey);
+  // }, []);
+
+  // const detectKey = (e) => {
+  //   if (e.key === "Enter") {
+  //     return validButton();
+  //   }
+  // };
+
   return (
     <>
       {/* Debut du modult input search ville ou pays */}
       <div className=" font-sans mt-1 mb-2 px-1 py-0 mr-1 ml-1 border-2 border-slate-100 rounded w-auto bg-gray-50/[0.9] drop-shadow-lg">
         <div className="mx-1 flex items-center">
           <input
+            id="search"
             className="block border-0 outline-0 mx-auto w-1/2 px-2 bg-transparent border-b border-sky-300 italic"
             type="text"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
+            // onKeyPress={detectKey}
             placeholder={
               browser === "fr"
                 ? translator[4].search_city_country_fr
@@ -60,15 +80,11 @@ export default function Search({ browser, translator }) {
               </span>
             </div>
           </div>
-          {dbWeather ? (
-            <Weather
-              weather={dbWeather}
-              translator={translator}
-              browser={browser}
-            />
-          ) : (
-            <p></p>
-          )}
+          <Weather
+            weather={dbWeather}
+            translator={translator}
+            browser={browser}
+          />
         </div>
       )}
 

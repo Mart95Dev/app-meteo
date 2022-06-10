@@ -12,7 +12,9 @@ export default function Home(props) {
   const [capitalCityName, setCapitalCityName] = useState(
     props.location.country_capital
   );
+  const [ipBrowser, setIpBrowser] = useState(props.ipLocation.ip);
 
+  // choix aléatoire de sphotos au rechargement de la page
   const randomImg =
     Pictures.images[Math.floor(Math.random() * Pictures.images.length)];
 
@@ -97,6 +99,7 @@ export default function Home(props) {
               capitalCityName={capitalCityName}
               flag={flag}
               translator={props.translator}
+              ipBrowser={ipBrowser}
             />
             {/* fin du container weather IP */}
             {/* début container weather search élément fixe de présentation*/}
@@ -119,9 +122,12 @@ export default function Home(props) {
 }
 
 export async function getStaticProps() {
+  const urlLocation = "https://api.ipify.org/?format=json";
+  const data0 = await fetch(urlLocation);
+  const ipLocation = await data0.json();
+
   const keyIp = "7bee4c110b8a43849ebeb6b837154eae";
   const url = `https://api.ipgeolocation.io/ipgeo?apiKey=${keyIp}`;
-
   const data1 = await fetch(url);
   const location = await data1.json();
 
@@ -141,6 +147,7 @@ export async function getStaticProps() {
 
   return {
     props: {
+      ipLocation,
       location,
       country,
       city,

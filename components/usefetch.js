@@ -8,8 +8,6 @@ function UseFetch(url) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // const test = "";
-
   const searchWeather = () => {
     setLoading(true);
     axios

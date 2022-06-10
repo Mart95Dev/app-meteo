@@ -11,11 +11,13 @@ export default function Ip({
   capitalCityName,
   flag,
   translator,
+  ipBrowser,
 }) {
   const [dbWeather, setDbWeather] = useState(null);
 
   const file = flag.slice(38);
 
+  // fonction optimisation image pour next et éviter les erreurs
   const myLoader = ({ src, width, quality }) => {
     // return `https://example.com/${src}?w=${width}&q=${quality || 75}`;
     return `https://ipgeolocation.io/static/flags/${src}?w=${width}&q=${
@@ -23,14 +25,17 @@ export default function Ip({
     }`;
   };
 
+  // chargement de la base weather à la géolocalisation
   useEffect(() => {
     const getWeather = async () => {
       let apiUrl = "";
       const navigator = window.navigator.language.slice(0, 2);
       if (navigator == "fr") {
-        apiUrl = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=fr&q=${countryName}`;
+        apiUrl = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=fr&ip=${ipBrowser}&q=${countryName}`;
+        console.log(apiUrl);
       } else {
-        apiUrl = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=en&q=${countryName}`;
+        apiUrl = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=en&ip=${ipBrowser}&q=${countryName}`;
+        console.log(apiUrl);
       }
       const { data } = await axios(apiUrl);
       setDbWeather(data);
