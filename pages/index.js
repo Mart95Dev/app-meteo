@@ -118,7 +118,6 @@ export default function Home(props) {
         <div className="hidden sm:block relative flex-1">{randomImg}</div>
         {/* debut photo de présentation sur app meteo */}
       </main>
-      <div>{props.location}</div>
     </div>
   );
 }

@@ -27,32 +27,41 @@ export default function Ip({
 
   // chargement de la base weather à la géolocalisation
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      setLat(position.coords.latitude);
-      setLong(position.coords.longitude);
-    });
-    let finalApiUrl = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=${browser}&q=${lat},${long}`;
-    console.log(finalApiUrl);
-    axios.get(finalApiUrl).then((response) => {
-      setDbWeather(response.data);
-    });
+    // navigator.geolocation.getCurrentPosition((position) => {
+    //   setLat(position.coords.latitude);
+    //   setLong(position.coords.longitude);
+    // });
+    // let finalApiUrl = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=${browser}&q=${lat},${long}`;
+    // console.log(finalApiUrl);
+    // axios.get(finalApiUrl).then((response) => {
+    //   setDbWeather(response.data);
+    // });
 
-    //   const getWeather = async () => {
-    //   let apiUrl = "";
-    //   const navigator = window.navigator.language.slice(0, 2);
-    //   if (navigator == "fr") {
-    //     apiUrl = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=fr&q=${lat},${long}`;
-    //     console.log(apiUrl);
-    //   } else {
-    //     apiUrl = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=en&q=${lat},${long}`;
-    //     console.log(apiUrl);
-    //   }
-    //   const { data } = await axios(apiUrl);
-    //   setDbWeather(data);
-    // };
-    // getLocation();
-    // getWeather();
-  }, []);
+    const getLocation = async () => {
+      navigator.geolocation.getCurrentPosition((position) => {
+        setLat(position.coords.latitude);
+        setLong(position.coords.longitude);
+      });
+    };
+
+    const getWeather = async () => {
+      let apiUrl = "";
+      const navigator = window.navigator.language.slice(0, 2);
+      if (navigator == "fr") {
+        apiUrl = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=fr&q=${lat},${long}`;
+        console.log(apiUrl);
+      } else {
+        apiUrl = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=en&q=${lat},${long}`;
+        console.log(apiUrl);
+      }
+      const { data } = await axios(apiUrl);
+      setDbWeather(data);
+    };
+    getLocation();
+    console.log(lat);
+    console.log(long);
+    getWeather();
+  }, [lat, long]);
 
   // //affichage de l'attribut image en fonction du drapeau de localisation
   const flagAlt = `Drapeau de ${countryName}`;
