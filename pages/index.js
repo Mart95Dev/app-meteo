@@ -6,6 +6,8 @@ import WeatherIp from "../components/ip";
 import WeatherSearch from "../components/search";
 
 export default function Home(props) {
+  console.log(props.location);
+
   // creer des variables pour les props pour le module location
   const [browser, setBrowser] = useState("");
   const [countryName, setCountryName] = useState(props.location.country_name);
@@ -47,7 +49,7 @@ export default function Home(props) {
     }
   };
 
-  //On assigne la fonction du ville français à une variable pour faciliter l'utilisation
+  //On assigne la fonction de ville français à une variable pour faciliter l'utilisation
   const cityLanguageFrench = cityFrench();
 
   return (
@@ -121,10 +123,6 @@ export default function Home(props) {
 }
 
 export async function getStaticProps() {
-  // const urlIp = "https://api.ipify.org/?format=json";
-  // const data0 = await fetch(urlIp);
-  // const ipLocation = await data0.json();
-
   const keyIp = "7bee4c110b8a43849ebeb6b837154eae";
   const url = `https://api.ipgeolocation.io/ipgeo?apiKey=${keyIp}`;
   const data1 = await fetch(url);
@@ -146,7 +144,6 @@ export async function getStaticProps() {
 
   return {
     props: {
-      // ipLocation,
       location,
       country,
       city,
