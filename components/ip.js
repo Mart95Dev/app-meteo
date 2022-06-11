@@ -32,6 +32,7 @@ export default function Ip({
       setLong(position.coords.longitude);
     });
     let finalApiUrl = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=${browser}&q=${lat},${long}`;
+    console.log(finalApiUrl);
     axios.get(finalApiUrl).then((response) => {
       setDbWeather(response.data);
     });
