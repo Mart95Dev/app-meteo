@@ -25,22 +25,20 @@ export default function Ip({
     }`;
   };
 
-  const getLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(getCoordonates);
-    } else {
-      alert("Geolocation is not supported by this browser");
-    }
-  };
-
-  const getCoordonates = (position) => {
-    setLat(position.coords.latitude);
-    setLong(position.coords.longitude);
-  };
-
   // chargement de la base weather à la géolocalisation
   useEffect(() => {
-    getLocation();
+    const getLocation = () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(getCoordonates);
+      } else {
+        alert("Geolocation is not supported by this browser");
+      }
+    };
+
+    const getCoordonates = (position) => {
+      setLat(position.coords.latitude);
+      setLong(position.coords.longitude);
+    };
 
     const getWeather = async () => {
       let apiUrl = "";
@@ -55,9 +53,9 @@ export default function Ip({
       const { data } = await axios(apiUrl);
       setDbWeather(data);
     };
-
+    getLocation();
     getWeather();
-  }, []);
+  }, [lat, long]);
 
   // //affichage de l'attribut image en fonction du drapeau de localisation
   const flagAlt = `Drapeau de ${countryName}`;
