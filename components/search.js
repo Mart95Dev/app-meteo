@@ -5,7 +5,6 @@ import useFetch from "./usefetch";
 export default function Search({ browser, translator }) {
   const [location, setLocation] = useState("");
   const [word, setWord] = useState("");
-  const [testError, setTestError] = useState(false);
 
   const API_URL = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=${browser}&q=${location}`;
 

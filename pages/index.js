@@ -7,7 +7,6 @@ import WeatherSearch from "../components/search";
 
 export default function Home(props) {
   console.log(props.location);
-
   // creer des variables pour les props pour le module location
   const [browser, setBrowser] = useState("");
   const [countryName, setCountryName] = useState(props.location.country_name);
