@@ -41,7 +41,8 @@ export default function Home(props) {
 
     const getCountryCoordonates = async () => {
       const API_KEY = "104f47a547c971ceb1807a4930f72552";
-      let city = `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${API_KEY}`;
+      let city = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${API_KEY}`;
+      console.log(city);
       const { data } = await axios(city);
       setCityLocation(data[0].name);
     };
@@ -51,23 +52,14 @@ export default function Home(props) {
       console.log(API_URL);
       const { data } = await axios(API_URL);
       console.log(data.location.country);
-      console.log(data.location);
+
       setCountryName(data.location.country);
       setCapitalCityName(data.location.region);
 
       setDbWeather(data);
     };
 
-    // const getFlagCountryLocation = async () => {
-    //   const keyIp = "7bee4c110b8a43849ebeb6b837154eae";
-    //   // let flagUrl = `https://api.ipgeolocation.io/ipgeo?apiKey=${keyIp}&fields=${latitude},${longitude}`;
-    //   let flagUrl = `https://countryflagsapi.com/png/${countryName}`;
-    //   const { data } = await axios(flagUrl);
-    //   console.log(data);
-    //   setFlag(data);
-    // };
     getLocation();
-    // getFlagCountryLocation();
   }, [latitude, longitude, cityLocation]);
 
   //verification pays de location est identique a pays de country en anglais et on retourne le pays en français
