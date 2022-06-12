@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Weather from "./moduleweather";
-import axios from "axios";
 import Image from "next/image";
 
 export default function Ip({
+  dbWeather,
   browser,
   cityLanguageFrench,
   countryLanguageFrench,
@@ -12,56 +12,12 @@ export default function Ip({
   flag,
   translator,
 }) {
-  const [dbWeather, setDbWeather] = useState(null);
-  const [lat, setLat] = useState(null);
-  const [long, setLong] = useState(null);
-
-  const file = flag.slice(38);
-
   // fonction optimisation image pour next et éviter les erreurs
-  const myLoader = ({ src, width, quality }) => {
-    return `https://ipgeolocation.io/static/flags/${src}?w=${width}&q=${
-      quality || 75
-    }`;
-  };
-
-  // chargement de la base weather à la géolocalisation
-  useEffect(() => {
-    // navigator.geolocation.getCurrentPosition((position) => {
-    //   setLat(position.coords.latitude);
-    //   setLong(position.coords.longitude);
-    // });
-    // let finalApiUrl = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=${browser}&q=${lat},${long}`;
-    // console.log(finalApiUrl);
-    // axios.get(finalApiUrl).then((response) => {
-    //   setDbWeather(response.data);
-    // });
-
-    const getLocation = async () => {
-      navigator.geolocation.getCurrentPosition((position) => {
-        setLat(position.coords.latitude);
-        setLong(position.coords.longitude);
-      });
-    };
-
-    const getWeather = async () => {
-      let apiUrl = "";
-      const navigator = window.navigator.language.slice(0, 2);
-      if (navigator == "fr") {
-        apiUrl = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=fr&q=${lat},${long}`;
-        console.log(apiUrl);
-      } else {
-        apiUrl = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=en&q=${lat},${long}`;
-        console.log(apiUrl);
-      }
-      const { data } = await axios(apiUrl);
-      setDbWeather(data);
-    };
-    getLocation();
-    console.log(lat);
-    console.log(long);
-    getWeather();
-  }, [lat, long]);
+  // const myLoader = ({ src, width, quality }) => {
+  //   return `https://countryflagsapi.com/png/${src}?w=${width}&q=${
+  //     quality || 75
+  //   }`;
+  // };
 
   // //affichage de l'attribut image en fonction du drapeau de localisation
   const flagAlt = `Drapeau de ${countryName}`;
@@ -72,15 +28,22 @@ export default function Ip({
       <div className="px-1 py-0 mr-1 ml-1 border-2 border-slate-100 rounded w-auto bg-gray-50/[0.9] drop-shadow-lg">
         <ul className="flex space-x-20 space-y-0 items-center">
           <li>
-            <Image
-              loader={myLoader}
+            <img
+              className="mt-1 border-2  border-gray-500 rounded min-w-80"
+              width="64"
+              height="43"
+              src={`https://countryflagsapi.com/png/${countryName}`}
+              alt={flagAlt}
+            />
+            {/* <Image
+              loader={countryName && myLoader}
               layout="fixed"
               width={64}
               height={43}
-              className="mt-1 border-2  border-gray-500 rounded min-w-80"
-              src={file}
+              className="mt-3 rounded min-w-80"
+              src={countryName ? countryName : ""}
               alt={flagAlt}
-            />
+            /> */}
           </li>
           <li>
             <span className="mr-2">

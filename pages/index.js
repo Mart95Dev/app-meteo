@@ -4,33 +4,76 @@ import Head from "next/head";
 import Pictures from "../data/pictures";
 import WeatherIp from "../components/ip";
 import WeatherSearch from "../components/search";
+import axios from "axios";
 
 export default function Home(props) {
-  console.log(props.location);
   // creer des variables pour les props pour le module location
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
+  const [cityLocation, setCityLocation] = useState("");
   const [browser, setBrowser] = useState("");
-  const [countryName, setCountryName] = useState(props.location.country_name);
-  const [capitalCityName, setCapitalCityName] = useState(
-    props.location.country_capital
-  );
+  const [countryName, setCountryName] = useState("");
+  const [capitalCityName, setCapitalCityName] = useState();
+  const [dbWeather, setDbWeather] = useState("");
 
   // choix aléatoire de sphotos au rechargement de la page
   const randomImg =
     Pictures.images[Math.floor(Math.random() * Pictures.images.length)];
 
   // afficher le pays du drapeau dans attribut alt
-  const [flag, setFlag] = useState(props.location.country_flag);
+  const [flag, setFlag] = useState(""); //props.location.country_flag
 
   // useEffect pour utiliser le paramètre window qui s'éxécute une seule fois au load de la page
   useEffect(() => {
     const browser = window.navigator.language.slice(0, 2);
     setBrowser(browser);
-  }, []);
+
+    const getLocation = async () => {
+      navigator.geolocation.getCurrentPosition((position) => {
+        console.log(latitude);
+        console.log(longitude);
+        setLatitude(position.coords.latitude);
+        setLongitude(position.coords.longitude);
+      });
+      getCountryCoordonates();
+      getWeather();
+    };
+
+    const getCountryCoordonates = async () => {
+      const API_KEY = "104f47a547c971ceb1807a4930f72552";
+      let city = `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${API_KEY}`;
+      const { data } = await axios(city);
+      setCityLocation(data[0].name);
+    };
+
+    const getWeather = async () => {
+      let API_URL = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=${browser}&q=${cityLocation}`;
+      console.log(API_URL);
+      const { data } = await axios(API_URL);
+      console.log(data.location.country);
+      console.log(data.location);
+      setCountryName(data.location.country);
+      setCapitalCityName(data.location.region);
+
+      setDbWeather(data);
+    };
+
+    // const getFlagCountryLocation = async () => {
+    //   const keyIp = "7bee4c110b8a43849ebeb6b837154eae";
+    //   // let flagUrl = `https://api.ipgeolocation.io/ipgeo?apiKey=${keyIp}&fields=${latitude},${longitude}`;
+    //   let flagUrl = `https://countryflagsapi.com/png/${countryName}`;
+    //   const { data } = await axios(flagUrl);
+    //   console.log(data);
+    //   setFlag(data);
+    // };
+    getLocation();
+    // getFlagCountryLocation();
+  }, [latitude, longitude, cityLocation]);
 
   //verification pays de location est identique a pays de country en anglais et on retourne le pays en français
   const countryFrench = () => {
     for (let i = 0; i < props.country.length; i++) {
-      if (props.country[i].en === props.location.country_name) {
+      if (props.country[i].en === countryName) {
         return props.country[i].fr;
       }
     }
@@ -93,6 +136,7 @@ export default function Home(props) {
             </h2>
             <WeatherIp
               browser={browser}
+              dbWeather={dbWeather}
               cityLanguageFrench={cityLanguageFrench}
               countryLanguageFrench={countryLanguageFrench}
               countryName={countryName}
@@ -122,10 +166,10 @@ export default function Home(props) {
 }
 
 export async function getStaticProps() {
-  const keyIp = "7bee4c110b8a43849ebeb6b837154eae";
-  const url = `https://api.ipgeolocation.io/ipgeo?apiKey=${keyIp}`;
-  const data1 = await fetch(url);
-  const location = await data1.json();
+  // const keyIp = "7bee4c110b8a43849ebeb6b837154eae";
+  // const url = `https://api.ipgeolocation.io/ipgeo?apiKey=${keyIp}`;
+  // const data1 = await fetch(url);
+  // const location = await data1.json();
 
   const data2 = await import("../data/countries.json");
   const country = data2.countries;
@@ -143,7 +187,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      location,
+      // location,
       country,
       city,
       translator,
