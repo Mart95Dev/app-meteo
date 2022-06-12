@@ -30,8 +30,6 @@ export default function Home(props) {
 
     const getLocation = async () => {
       navigator.geolocation.getCurrentPosition((position) => {
-        console.log(latitude);
-        console.log(longitude);
         setLatitude(position.coords.latitude);
         setLongitude(position.coords.longitude);
       });
@@ -42,20 +40,15 @@ export default function Home(props) {
     const getCountryCoordonates = async () => {
       const API_KEY = "104f47a547c971ceb1807a4930f72552";
       let city = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${API_KEY}`;
-      console.log(city);
       const { data } = await axios(city);
       setCityLocation(data[0].name);
     };
 
     const getWeather = async () => {
       let API_URL = `https://api.weatherapi.com/v1/current.json?key=dca9bf60966d4dd9a2f120022222705&lang=${browser}&q=${cityLocation}`;
-      console.log(API_URL);
       const { data } = await axios(API_URL);
-      console.log(data.location.country);
-
       setCountryName(data.location.country);
       setCapitalCityName(data.location.region);
-
       setDbWeather(data);
     };
 
@@ -133,7 +126,6 @@ export default function Home(props) {
               countryLanguageFrench={countryLanguageFrench}
               countryName={countryName}
               capitalCityName={capitalCityName}
-              flag={flag}
               translator={props.translator}
               // ipBrowser={props.ipLocation.ip}
             />
@@ -158,11 +150,6 @@ export default function Home(props) {
 }
 
 export async function getStaticProps() {
-  // const keyIp = "7bee4c110b8a43849ebeb6b837154eae";
-  // const url = `https://api.ipgeolocation.io/ipgeo?apiKey=${keyIp}`;
-  // const data1 = await fetch(url);
-  // const location = await data1.json();
-
   const data2 = await import("../data/countries.json");
   const country = data2.countries;
 
@@ -179,7 +166,6 @@ export async function getStaticProps() {
 
   return {
     props: {
-      // location,
       country,
       city,
       translator,

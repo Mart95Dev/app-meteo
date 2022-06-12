@@ -9,7 +9,6 @@ export default function Ip({
   countryLanguageFrench,
   countryName,
   capitalCityName,
-  flag,
   translator,
 }) {
   // fonction optimisation image pour next et éviter les erreurs
